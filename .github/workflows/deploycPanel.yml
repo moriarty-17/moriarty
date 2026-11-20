@@ -15,7 +15,7 @@ jobs:
       - name: Sync file ke cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: 103.167.113.158
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./14-akun-game-nazil.smkwikrama1jepara.sch.id/
