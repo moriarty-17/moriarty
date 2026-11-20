@@ -18,7 +18,7 @@ jobs:
           server: 103.167.113.158
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./14-akun-game-nazil.smkwikrama1jepara.sch.id/lmafohuahua/14-akun-game-nazil.smkwikrama1jepara.sch.id
+          server-dir: ./14-akun-game-nazil.smkwikrama1jepara.sch.id
           protocol: ftps
           port: 21
           security: loose
