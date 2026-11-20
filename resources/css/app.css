@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@theme inline {
+}
+
+@source "../../resources/**/*.blade.php";
+@source "../../public/assets/style.css";
+@source "../**/*.blade.php"; 
+@source "./**/*.blade.php";
+
+@theme {
+    --color-ink: #04111F;
+    --color-navy: #06182A;
+    --color-panel: #081D31;
+    --color-card: #0A2742;
+    --color-line: #163957;
+    --color-strip: #193E60;
+
+    --color-brand: #1769E8;
+    --color-sky: #38BDF8;
+
+    --color-muted: #94A8BA;
+    --color-light: #F4F8FC;
+
+    --color-searchbg: #103654;
+    --color-searchline: #1B4E79;
+
+    --color-ok: #10B981;
+    --color-bad: #EF4444;
+    --color-warn: #F59E0B;
+    --color-verify: #5069E9;
+
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    --shadow-strip: 0 0 30px rgba(23, 105, 232, 0.46);
+}
+
+@layer components {
+.market-field {
+@apply w-full rounded-[9px] border bg-card px-3.5 text-sm font-medium text-light outline-none;
+    border-color: var(--color-line);
+    background-color: color-mix(
+        in srgb,
+        var(--color-card) 94%,
+        var(--color-panel)
+    );
+
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.market-field:hover {
+    border-color: var(--color-searchline);
+
+    box-shadow:
+        0 0 0 1px color-mix(
+            in srgb,
+            var(--color-searchline) 35%,
+            transparent
+        );
+}
+
+.market-field:focus {
+    border-color: var(--color-brand);
+    background-color: var(--color-card);
+
+    box-shadow:
+        0 0 0 3px color-mix(
+            in srgb,
+            var(--color-brand) 16%,
+            transparent
+        );
+}
+
+.market-field::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+}
+
+.market-upload {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 190px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px dashed var(--color-line);
+    background: color-mix(
+        in srgb,
+        var(--color-card) 72%,
+        var(--color-panel)
+    );
+
+    transition:
+        border-color 200ms ease,
+        background-color 200ms ease,
+        box-shadow 200ms ease,
+        transform 200ms ease;
+}
+
+.market-upload:hover {
+    border-color: var(--color-searchline);
+
+    background-color: color-mix(
+        in srgb,
+        var(--color-card) 88%,
+        var(--color-panel)
+    );
+
+    box-shadow:
+        0 0 0 1px color-mix(
+            in srgb,
+            var(--color-searchline) 30%,
+            transparent
+        ),
+        0 12px 30px color-mix(
+            in srgb,
+            var(--color-brand) 8%,
+            transparent
+        );
+
+    transform: translateY(-1px);
+}
+
+.market-upload:focus-within {
+    border-color: var(--color-brand);
+
+    box-shadow:
+        0 0 0 3px color-mix(
+            in srgb,
+            var(--color-brand) 16%,
+            transparent
+        );
+}
+
+.market-upload-icon {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid var(--color-line);
+    background-color: var(--color-panel);
+    color: var(--color-muted);
+
+    transition:
+        border-color 200ms ease,
+        color 200ms ease,
+        transform 200ms ease,
+        background-color 200ms ease;
+}
+
+.market-upload:hover .market-upload-icon {
+    border-color: var(--color-searchline);
+    background-color: var(--color-navy);
+    color: var(--color-sky);
+    transform: scale(1.05);
+}
+
+.market-button {
+    min-height: 46px;
+    border-radius: 9px;
+    background-color: var(--color-brand);
+    color: var(--color-light);
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow:
+        0 8px 24px color-mix(
+            in srgb,
+            var(--color-brand) 12%,
+            transparent
+        );
+
+    transition:
+        transform 200ms ease,
+        filter 200ms ease,
+        box-shadow 200ms ease;
+}
+
+.market-button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px color-mix(
+            in srgb,
+            var(--color-brand) 22%,
+            transparent
+        );
+}
+
+.market-button:active {
+    transform: translateY(0);
+}
+
+.market-button:focus-visible {
+    outline: 2px solid var(--color-sky);
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    .market-upload {
+        min-height: 175px;
+    }
+}
+
+}
